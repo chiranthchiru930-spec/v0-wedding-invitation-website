@@ -154,7 +154,7 @@ export function Slideshow({
 
             index === currentIndex
 
-              ? "opacity-130 scale-130"
+              ? "opacity-130 scale-[1.3]"
 
               : "opacity-0 scale-105"
 
