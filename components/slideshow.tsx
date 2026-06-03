@@ -170,7 +170,7 @@ export function Slideshow({
 
             fill
 
-            className="object-cover"
+            className="object-contain"
 
             priority={index === 0}
 
