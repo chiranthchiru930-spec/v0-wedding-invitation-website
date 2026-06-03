@@ -154,7 +154,7 @@ export function Slideshow({
 
             index === currentIndex
 
-              ? "opacity-100 scale-100"
+              ? "opacity-130 scale-130"
 
               : "opacity-0 scale-105"
 
@@ -170,7 +170,7 @@ export function Slideshow({
 
             fill
 
-            className="object-cover"
+            className="object-contain"
 
             priority={index === 0}
 
