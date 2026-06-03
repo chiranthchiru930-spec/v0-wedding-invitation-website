@@ -49,7 +49,7 @@ export function MusicPlayer() {
         ref={audioRef}
         loop
         preload="metadata"
-        src="/public/Amaran-music.mp3"
+        src="/Amaran-music.mp3"
       />
       <button
         onClick={togglePlay}
