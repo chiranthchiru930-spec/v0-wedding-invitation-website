@@ -3,7 +3,7 @@
 import { MapPin, Navigation } from "lucide-react"
 
 export function VenueSection() {
-  const venueUrl = "https://share.google/txzpg6g11yVGo4YZ5"
+  const venueUrl = "https://www.google.com/maps/place/WFGR%2B2F+Bengaluru,+Karnataka"
   
   return (
     <section className="py-24 md:py-32 px-4 relative">
@@ -21,7 +21,7 @@ export function VenueSection() {
           {/* Map embed */}
           <div className="relative aspect-video lg:aspect-square rounded-lg overflow-hidden border border-primary/20">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.84916296526!2d77.49085452342527!3d12.95428024665254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sus!4v1704067200000!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7069!2d77.4868!3d12.9345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3e4a6c8caa17%3A0x123456789!2sC%20R%20Simha%20Samskruthika%20Bhavana!5e0!3m2!1sen!2sin!4v1704067200000!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -45,9 +45,11 @@ export function VenueSection() {
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium text-foreground mb-2">Wedding Venue</h3>
+                  <h3 className="text-xl font-medium text-foreground mb-2">C R Simha Samskruthika Bhavana</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    The exact venue details will be shared closer to the wedding date. Please check back or contact us for more information.
+                    7, 1st Main Rd, Gnanabharathi, Stage II,<br />
+                    Kengeri Satellite Town,<br />
+                    Bengaluru, Karnataka 560059
                   </p>
                 </div>
               </div>
