@@ -3,7 +3,7 @@
 import { MapPin, Navigation } from "lucide-react"
 
 export function VenueSection() {
-  const venueUrl = "https://www.google.com/maps/place/WFGR%2B2F+Bengaluru,+Karnataka"
+  const venueUrl = "https://maps.app.goo.gl/QvRVFUNvK3ZoJHfG8"
   
   return (
     <section className="py-24 md:py-32 px-4 relative">
