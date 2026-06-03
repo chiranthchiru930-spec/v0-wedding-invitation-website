@@ -21,7 +21,7 @@ export function VenueSection() {
           {/* Map embed */}
           <div className="relative aspect-video lg:aspect-square rounded-lg overflow-hidden border border-primary/20">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7069!2d77.4868!3d12.9345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3e4a6c8caa17%3A0x123456789!2sC%20R%20Simha%20Samskruthika%20Bhavana!5e0!3m2!1sen!2sin!4v1704067200000!5m2!1sen!2sin"
+              src="https://maps.app.goo.gl/QvRVFUNvK3ZoJHfG8"
               width="100%"
               height="100%"
               style={{ border: 0 }}
