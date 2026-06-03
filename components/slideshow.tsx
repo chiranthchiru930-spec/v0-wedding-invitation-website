@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
@@ -12,6 +12,8 @@ interface SlideshowProps {
 export function Slideshow({ images, autoPlayInterval = 5000 }: SlideshowProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isLoaded, setIsLoaded] = useState(false)
+  const touchStartX = useRef<number | null>(null)
+const touchEndX = useRef<number | null>(null)
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % images.length)
@@ -20,6 +22,25 @@ export function Slideshow({ images, autoPlayInterval = 5000 }: SlideshowProps) {
   const prevSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)
   }, [images.length])
+  const handleTouchStart = (e: React.TouchEvent) => {
+  touchStartX.current = e.targetTouches[0].clientX
+}
+
+const handleTouchMove = (e: React.TouchEvent) => {
+  touchEndX.current = e.targetTouches[0].clientX
+}
+
+const handleTouchEnd = () => {
+  if (!touchStartX.current || !touchEndX.current) return
+
+  const distance = touchStartX.current - touchEndX.current
+
+  if (distance > 50) nextSlide()
+  if (distance < -50) prevSlide()
+
+  touchStartX.current = null
+  touchEndX.current = null
+}
 
   useEffect(() => {
     setIsLoaded(true)
@@ -34,12 +55,17 @@ export function Slideshow({ images, autoPlayInterval = 5000 }: SlideshowProps) {
   }
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div
+  className="relative w-full h-screen overflow-hidden"
+  onTouchStart={handleTouchStart}
+  onTouchMove={handleTouchMove}
+  onTouchEnd={handleTouchEnd}
+>
       {/* Images */}
       {images.map((image, index) => (
         <div
           key={image.src}
-          className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+          className={`absolute inset-0 transition-all duration-2000 ease-in-out ${
             index === currentIndex 
               ? "opacity-100 scale-100" 
               : "opacity-0 scale-105"
@@ -69,8 +95,41 @@ export function Slideshow({ images, autoPlayInterval = 5000 }: SlideshowProps) {
           <p className="text-lg md:text-xl text-muted-foreground mt-4">
             5th July 2026
           </p>
-        </div>
-      </div>
+              </div>
     </div>
-  )
+
+    {/* Previous Button */}
+    <button
+      onClick={prevSlide}
+      className="absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-black/30 text-white p-3 rounded-full"
+    >
+      <ChevronLeft className="w-6 h-6" />
+    </button>
+
+    {/* Next Button */}
+    <button
+      onClick={nextSlide}
+      className="absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-black/30 text-white p-3 rounded-full"
+    >
+      <ChevronRight className="w-6 h-6" />
+    </button>
+
+    {/* Dots */}
+    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex gap-2">
+      {images.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setCurrentIndex(index)}
+          className={`w-3 h-3 rounded-full ${
+            index === currentIndex
+              ? "bg-yellow-400"
+              : "bg-white/50"
+          }`}
+        />
+      ))}
+    </div>
+
+  </div>
+
+)
 }
