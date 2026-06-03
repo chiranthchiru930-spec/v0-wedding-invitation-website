@@ -57,40 +57,8 @@ export function Slideshow({ images, autoPlayInterval = 5000 }: SlideshowProps) {
         </div>
       ))}
 
-      {/* Navigation Arrows */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-background/30 backdrop-blur-sm border border-primary/30 text-primary hover:bg-primary/20 transition-all duration-300 z-10"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft className="w-6 h-6" />
-      </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-background/30 backdrop-blur-sm border border-primary/30 text-primary hover:bg-primary/20 transition-all duration-300 z-10"
-        aria-label="Next slide"
-      >
-        <ChevronRight className="w-6 h-6" />
-      </button>
-
-      {/* Dots Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentIndex 
-                ? "w-8 bg-primary" 
-                : "bg-primary/40 hover:bg-primary/60"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
-
-      {/* Content Overlay */}
-      <div className="absolute inset-0 flex items-center justify-center z-10">
+      {/* Content Overlay - pointer-events-none so buttons are clickable */}
+      <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
         <div className="text-center px-4">
           <p className="text-primary/80 text-sm md:text-base uppercase tracking-[0.3em] mb-4 fade-in-up">
             Save the Date
