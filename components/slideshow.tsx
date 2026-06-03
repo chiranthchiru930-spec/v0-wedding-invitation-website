@@ -84,7 +84,7 @@ export function Slideshow({
             src={image.src}
             alt={image.alt}
             fill
-            className="object-cover"
+            className="object-contain"
             priority={index === 0}
           />
 
