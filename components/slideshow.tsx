@@ -95,7 +95,7 @@ const handleTouchEnd = () => {
           <p className="text-lg md:text-xl text-muted-foreground mt-4">
             5th July 2026
           </p>
-              </div>
+      </div>
     </div>
 
     {/* Previous Button */}
@@ -130,6 +130,5 @@ const handleTouchEnd = () => {
     </div>
 
   </div>
-
-)
+  )
 }
