@@ -49,7 +49,7 @@ export function MusicPlayer() {
         ref={audioRef}
         loop
         preload="metadata"
-        src="/music/wedding-song.mp3"
+        src="/public/public/music/wedding-song.mp3"
       />
       <button
         onClick={togglePlay}
