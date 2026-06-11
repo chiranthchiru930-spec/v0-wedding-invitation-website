@@ -39,7 +39,7 @@ export function FooterSection() {
 
         {/* Wedding hashtag */}
         <div className="inline-block px-6 py-3 border border-primary/30 bg-secondary/20 backdrop-blur-sm rounded-full">
-          <span className="text-primary font-medium tracking-wide">#LavanyaWedsCiranth</span>
+          <span className="text-primary font-medium tracking-wide">#LavanyaWedsChiranth</span>
         </div>
 
         {/* Copyright */}
